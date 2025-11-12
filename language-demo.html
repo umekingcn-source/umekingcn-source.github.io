@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多语言系统演示 | Multi-Language Demo</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/language-switcher.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .demo-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .demo-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .demo-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .demo-nav {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .demo-nav-links {
+            display: flex;
+            gap: 20px;
+            color: white;
+        }
+        
+        .demo-nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .demo-nav-links a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .demo-content {
+            padding: 60px 40px;
+        }
+        
+        .demo-section {
+            margin-bottom: 60px;
+        }
+        
+        .demo-section h2 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .demo-section p {
+            color: #666;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .demo-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .demo-card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .demo-card h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .demo-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .demo-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .demo-feature {
+            flex: 1;
+            min-width: 250px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .demo-feature h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .demo-feature ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .demo-feature li {
+            padding: 8px 0;
+            color: #666;
+        }
+        
+        .demo-feature li:before {
+            content: "✓";
+            color: #4ade80;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .demo-footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #4ade80;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #a0aec0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* RTL Support Demo */
+        body.rtl .demo-content {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        body.rtl .demo-feature {
+            border-left: none;
+            border-right: 4px solid #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-header h1 {
+                font-size: 2rem;
+            }
+            
+            .demo-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .demo-nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- Header -->
+        <div class="demo-header">
+            <h1>🌍 U-MEKING</h1>
+            <p data-i18n="hero.subtitle">U-Meking IDEAS</p>
+            <div class="demo-nav">
+                <div class="demo-nav-links">
+                    <a href="#features" data-i18n="nav.catalog">Catalog</a>
+                    <a href="#demo" data-i18n="nav.cases">Portfolio</a>
+                    <a href="#docs" data-i18n="nav.process">Process</a>
+                </div>
+                <!-- 语言切换器将在这里动态创建 -->
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="demo-content">
+            <!-- Introduction -->
+            <div class="demo-section">
+                <h2 data-i18n="hero.title">U-MEKING</h2>
+                <span class="status-badge">✅ 系统已上线</span>
+                <p data-i18n="hero.description">Custom Garment Tags & Promotional Products | Quality Craftsmanship Since Establishment</p>
+            </div>
+            
+            <!-- Features -->
+            <div class="demo-section" id="features">
+                <h2>🎯 核心功能展示</h2>
+                
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <div class="demo-card-icon">🌐</div>
+                        <h3 data-i18n="category.garment.title">5种语言支持</h3>
+                        <p>英语、中文、德语、西班牙语、阿拉伯语</p>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-card-icon">⚡</div>
+                        <h3 data-i18n="category.embroidered.title">即时切换</h3>
+                        <p>无需刷新页面，切换速度 < 10ms</p>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-card-icon">💾</div>
+                        <h3 data-i18n="category.woven.title">持久化存储</h3>
+                        <p>自动保存语言偏好，下次访问直接加载</p>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-card-icon">🔄</div>
+                        <h3 data-i18n="category.tpu.title">RTL支持</h3>
+                        <p>完整的阿拉伯语从右到左布局</p>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-card-icon">📱</div>
+                        <h3 data-i18n="category.heatTransfer.title">响应式设计</h3>
+                        <p>完美适配所有设备和屏幕尺寸</p>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-card-icon">🎨</div>
+                        <h3 data-i18n="category.promo.title">美观UI</h3>
+                        <p>现代化的语言切换器，流畅动画</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feature Details -->
+            <div class="demo-section">
+                <h2>✨ 技术特性</h2>
+                
+                <div class="demo-features">
+                    <div class="demo-feature">
+                        <h4>
+                            <i class="fas fa-code"></i>
+                            <span data-i18n="category.wristbands.title">技术实现</span>
+                        </h4>
+                        <ul>
+                            <li data-i18n="category.wristbands.feature1">零依赖 - 纯原生JS</li>
+                            <li data-i18n="category.wristbands.feature2">轻量级 - 总计 < 30KB</li>
+                            <li data-i18n="category.wristbands.feature3">高性能 - 即时响应</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo-feature">
+                        <h4>
+                            <i class="fas fa-users"></i>
+                            <span data-i18n="category.keychains.title">用户体验</span>
+                        </h4>
+                        <ul>
+                            <li data-i18n="category.keychains.feature1">自动语言检测</li>
+                            <li data-i18n="category.keychains.feature2">记忆用户选择</li>
+                            <li data-i18n="category.keychains.feature3">无缝切换体验</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="demo-feature">
+                        <h4>
+                            <i class="fas fa-globe"></i>
+                            <span data-i18n="category.lanyards.title">国际化</span>
+                        </h4>
+                        <ul>
+                            <li data-i18n="category.lanyards.feature1">覆盖主要市场</li>
+                            <li data-i18n="category.lanyards.feature2">文化适配</li>
+                            <li data-i18n="category.lanyards.feature3">易于扩展</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Usage Demo -->
+            <div class="demo-section" id="demo">
+                <h2>🚀 使用方法</h2>
+                <p data-i18n="category.badges.desc">点击页面顶部的语言按钮即可切换语言</p>
+                
+                <div class="code-block">
+                    <code>
+// 快速集成代码<br>
+&lt;!-- 1. 引入CSS --&gt;<br>
+&lt;link rel="stylesheet" href="css/language-switcher.css"&gt;<br>
+<br>
+&lt;!-- 2. 添加翻译标记 --&gt;<br>
+&lt;h1 data-i18n="hero.title"&gt;U-MEKING&lt;/h1&gt;<br>
+<br>
+&lt;!-- 3. 引入JS --&gt;<br>
+&lt;script src="js/language-manager.js"&gt;&lt;/script&gt;
+                    </code>
+                </div>
+            </div>
+            
+            <!-- Statistics -->
+            <div class="demo-section">
+                <h2>📊 系统统计</h2>
+                <div class="demo-grid">
+                    <div class="demo-card">
+                        <h3>5</h3>
+                        <p>支持的语言</p>
+                    </div>
+                    <div class="demo-card">
+                        <h3>60+</h3>
+                        <p>翻译键数量</p>
+                    </div>
+                    <div class="demo-card">
+                        <h3>100%</h3>
+                        <p>翻译覆盖率</p>
+                    </div>
+                    <div class="demo-card">
+                        <h3>&lt;10ms</h3>
+                        <p>切换速度</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <div class="demo-section" style="text-align: center;">
+                <h2 data-i18n="contact.title">Get Your Free Design Quote</h2>
+                <p data-i18n="contact.subtitle">Let's create something amazing together</p>
+                <br>
+                <a href="index.html" style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: bold; margin-top: 20px;">
+                    <span data-i18n="hero.btn.browse">返回主页</span> →
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="demo-footer">
+            <p>© 2025 U-MEKING - <span data-i18n="footer.rights">All rights reserved</span></p>
+            <p style="margin-top: 10px; opacity: 0.7;">多语言系统演示页面 | Multi-Language System Demo</p>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/language-manager.js"></script>
+</body>
+</html>
+

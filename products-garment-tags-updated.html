@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="U-MEKING 服装标签产品 - 刺绣章、织唛标签、TPU贴章、热转印标签等专业定制服务">
+    <title>服装标签产品 - U-MEKING</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/currency-switcher.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 图片上传提示样式 */
+        .upload-hint {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 152, 0, 0.95);
+            color: white;
+            padding: 8px;
+            font-size: 11px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 5;
+        }
+        
+        .product-image:hover .upload-hint {
+            opacity: 1;
+        }
+        
+        .product-image img[src*="products/"] {
+            border: 2px dashed #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html"><h2>U-<span>MEKING</span></h2></a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html#products">产品</a>
+                    <a href="index.html#cases">案例</a>
+                    <a href="index.html#process">流程</a>
+                    <a href="index.html#about">关于</a>
+                    <a href="index.html#contact">联系</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> 首页</a>
+                <span>/</span>
+                <span>服装标签产品</span>
+            </div>
+            <h1>U-Meking 服装辅料</h1>
+            <p>专业定制服装标签、贴章，为您的品牌增添专属标识</p>
+        </div>
+    </section>
+
+    <!-- Product Filter & Sort -->
+    <section class="product-controls">
+        <div class="container">
+            <div class="controls-wrapper">
+                <div class="filter-section">
+                    <button class="filter-btn active" data-category="all">全部产品</button>
+                    <button class="filter-btn" data-category="embroidery">刺绣系列</button>
+                    <button class="filter-btn" data-category="woven">织唛系列</button>
+                    <button class="filter-btn" data-category="heat-transfer">热转印系列</button>
+                    <button class="filter-btn" data-category="tpu">TPU/硅胶</button>
+                    <button class="filter-btn" data-category="print">印刷系列</button>
+                    <button class="filter-btn" data-category="metal">金属系列</button>
+                </div>
+                <div class="sort-section">
+                    <select id="sortSelect">
+                        <option value="default">默认排序</option>
+                        <option value="price-low">价格从低到高</option>
+                        <option value="price-high">价格从高到低</option>
+                        <option value="moq-low">起订量从低到高</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                
+                <!-- 产品 1: Velcro魔术贴徽章 -->
+                <div class="product-card" data-category="embroidery" data-price="1.08" data-moq="500">
+                    <div class="product-badge">🔥 已售774件</div>
+                    <div class="product-image">
+                        <img src="images/products/velcro-badge-patch.jpg" alt="Velcro魔术贴徽章" onerror="this.src='images/case-patches.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/velcro-badge-patch.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">刺绣系列</span>
+                        <h3 class="product-title">Velcro魔术贴徽章</h3>
+                        <p class="product-desc">可拆卸刺绣徽章，背面魔术贴设计，适用于背包、战术服装、帽子等</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-fire"></i> 热卖爆款</span>
+                            <span><i class="fas fa-ruler"></i> 可定制尺寸</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥1.08-2.95</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 500片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 2: 刺绣亮片贴章 -->
+                <div class="product-card" data-category="embroidery" data-price="1.51" data-moq="100">
+                    <div class="product-badge new">精品</div>
+                    <div class="product-image">
+                        <img src="images/products/glitter-embroidery-patch.jpg" alt="刺绣亮片贴章" onerror="this.src='images/case-patches.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/glitter-embroidery-patch.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">刺绣系列</span>
+                        <h3 class="product-title">刺绣亮片贴章</h3>
+                        <p class="product-desc">闪亮亮片+刺绣工艺，适合时尚服装、演出服、配饰等</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-star"></i> 闪亮效果</span>
+                            <span><i class="fas fa-tshirt"></i> 高档服饰</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥1.51-3.53</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 100片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 3: 雪尼尔刺绣章 -->
+                <div class="product-card" data-category="embroidery" data-price="12.96" data-moq="50">
+                    <div class="product-badge">高端</div>
+                    <div class="product-image">
+                        <img src="images/products/chenille-patch.jpg" alt="雪尼尔刺绣章" onerror="this.src='images/case-patches.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/chenille-patch.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">刺绣系列</span>
+                        <h3 class="product-title">雪尼尔刺绣章</h3>
+                        <p class="product-desc">高端雪尼尔绒面工艺，立体饱满，适合卫衣、夹克、棒球服</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-gem"></i> 奢华质感</span>
+                            <span><i class="fas fa-layer-group"></i> 3D立体</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥12.96-25.20</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 50片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 4: 植绒贴章 -->
+                <div class="product-card" data-category="embroidery" data-price="1.94" data-moq="500">
+                    <div class="product-badge">运动款</div>
+                    <div class="product-image">
+                        <img src="images/products/flock-patch.jpg" alt="植绒贴章" onerror="this.src='images/case-patches.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/flock-patch.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">刺绣系列</span>
+                        <h3 class="product-title">植绒热转印贴章</h3>
+                        <p class="product-desc">3D立体植绒工艺，适合足球球衣、运动制服定制LOGO</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-futbol"></i> 运动专用</span>
+                            <span><i class="fas fa-fire"></i> 热转印</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥1.94-2.81</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 500片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 5: 水钻字母贴章 -->
+                <div class="product-card" data-category="embroidery" data-price="2.52" data-moq="200">
+                    <div class="product-badge">时尚</div>
+                    <div class="product-image">
+                        <img src="images/products/rhinestone-patch.jpg" alt="水钻字母贴章" onerror="this.src='images/case-patches.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/rhinestone-patch.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">刺绣系列</span>
+                        <h3 class="product-title">水钻字母贴章</h3>
+                        <p class="product-desc">水钻+刺绣组合，闪耀夺目，适合时尚品牌服装配饰</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-gem"></i> 水钻镶嵌</span>
+                            <span><i class="fas fa-font"></i> 字母定制</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥2.52-4.97</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 200片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 6: 亮片贴章 -->
+                <div class="product-card" data-category="embroidery" data-price="2.09" data-moq="500">
+                    <div class="product-image">
+                        <img src="images/products/sequin-patch.jpg" alt="亮片贴章" onerror="this.src='images/case-patches.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/sequin-patch.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">刺绣系列</span>
+                        <h3 class="product-title">双面亮片贴章</h3>
+                        <p class="product-desc">可翻转双色亮片，互动趣味，适合童装、时尚服饰</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-sync-alt"></i> 双面翻转</span>
+                            <span><i class="fas fa-child"></i> 趣味互动</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥2.09-6.98</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 500片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 7: 热转印织唛标签 -->
+                <div class="product-card" data-category="woven" data-price="0.65" data-moq="1000">
+                    <div class="product-badge">🔥 已售600件</div>
+                    <div class="product-image">
+                        <img src="images/products/heat-transfer-woven-label.jpg" alt="热转印织唛标签" onerror="this.src='images/case-label.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/heat-transfer-woven-label.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">织唛系列</span>
+                        <h3 class="product-title">热转印织唛标签</h3>
+                        <p class="product-desc">3D硅胶印刷+织唛组合，烫印固定，适合服装品牌标签</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-fire"></i> 热卖商品</span>
+                            <span><i class="fas fa-layer-group"></i> 3D硅胶</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥0.65-2.52</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 1000片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 8: DIY织物标签 -->
+                <div class="product-card" data-category="woven" data-price="3.53" data-moq="500">
+                    <div class="product-image">
+                        <img src="images/products/diy-fabric-label.jpg" alt="DIY织物标签" onerror="this.src='images/case-label.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/diy-fabric-label.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">织唛系列</span>
+                        <h3 class="product-title">DIY空白织物标签</h3>
+                        <p class="product-desc">聚酯纤维空白标签，可自行刺绣图案，适合手工定制</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-paint-brush"></i> DIY定制</span>
+                            <span><i class="fas fa-hands"></i> 手工艺</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥3.53-4.97</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 500片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 9: TPU全息防水标签 -->
+                <div class="product-card" data-category="tpu" data-price="1.37" data-moq="1000">
+                    <div class="product-badge">防水</div>
+                    <div class="product-image">
+                        <img src="images/products/holographic-tpu-label.jpg" alt="TPU全息标签" onerror="this.src='images/case-tags.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/holographic-tpu-label.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">TPU系列</span>
+                        <h3 class="product-title">TPU全息防水标签</h3>
+                        <p class="product-desc">3D立体TPU+全息效果，防水耐用，适合运动服、足球俱乐部</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-tint"></i> 防水</span>
+                            <span><i class="fas fa-rainbow"></i> 全息效果</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥1.37-3.53</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 1000片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 10: TPU足球俱乐部贴章 -->
+                <div class="product-card" data-category="tpu" data-price="1.94" data-moq="100">
+                    <div class="product-badge">运动款</div>
+                    <div class="product-image">
+                        <img src="images/products/tpu-football-patch.jpg" alt="TPU足球贴章" onerror="this.src='images/case-tags.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/tpu-football-patch.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">TPU系列</span>
+                        <h3 class="product-title">TPU足球俱乐部贴章</h3>
+                        <p class="product-desc">定制足球LOGO，高密度橡胶热转印，适合球衣运动制服</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-futbol"></i> 足球专用</span>
+                            <span><i class="fas fa-fire"></i> 热转印</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥1.94-6.41</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 100片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 11: B2B定制TPU贴章 -->
+                <div class="product-card" data-category="tpu" data-price="1.37" data-moq="1000">
+                    <div class="product-badge">B2B</div>
+                    <div class="product-image">
+                        <img src="images/products/b2b-custom-tpu.jpg" alt="B2B定制TPU" onerror="this.src='images/case-tags.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/b2b-custom-tpu.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">TPU系列</span>
+                        <h3 class="product-title">B2B定制3D TPU铁烫贴章</h3>
+                        <p class="product-desc">快速打样服务，企业制服、活动商品、品牌标签专用</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-building"></i> B2B定制</span>
+                            <span><i class="fas fa-bolt"></i> 快速打样</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥1.37-3.53</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 1000片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 12: 铁烫刺绣定制标签 -->
+                <div class="product-card" data-category="embroidery" data-price="1.08" data-moq="500">
+                    <div class="product-image">
+                        <img src="images/products/iron-on-custom-patch.jpg" alt="铁烫刺绣标签" onerror="this.src='images/case-patches.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/iron-on-custom-patch.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">刺绣系列</span>
+                        <h3 class="product-title">铁烫刺绣定制标签</h3>
+                        <p class="product-desc">背面热熔胶，可直接熨烫固定，适合服装、战术用品</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-fire"></i> 铁烫固定</span>
+                            <span><i class="fas fa-check"></i> 易操作</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥1.08-2.95</span>
+                                <span class="price-unit">/片</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 500片</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>需要定制专属产品？</h2>
+                <p>我们的设计团队随时为您服务，提供免费设计方案和快速打样</p>
+                <a href="index.html#contact" class="btn btn-primary btn-lg">免费咨询报价</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>U-<span>MEKING</span></h3>
+                    <p>专业定制服装标签和促销产品，为您的品牌增添独特魅力</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html#products">产品中心</a></li>
+                        <li><a href="index.html#cases">案例展示</a></li>
+                        <li><a href="index.html#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@u-meking.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 U-MEKING. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/currency-converter.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
+

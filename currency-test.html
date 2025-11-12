@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>货币切换系统测试 - U-MEKING</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/currency-switcher.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 40px;
+        }
+        
+        .test-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .test-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .price-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .price-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+        }
+        
+        .price-card h3 {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .price-card .price-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .price-card .price-unit {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .info-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .info-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .info-box p {
+            color: #666;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+        
+        .currency-list-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .currency-item {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .currency-item:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .currency-item .flag {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .currency-item .code {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .currency-item .name {
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .btn-test {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-test:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-indicator.online {
+            background: #4caf50;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html"><h2>U-<span>MEKING</span></h2></a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">返回首页</a>
+                    <a href="products-garment-tags-updated.html">服装标签</a>
+                    <a href="products-promotional-updated.html">促销产品</a>
+                    <!-- 货币切换器将自动添加到这里 -->
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Test Container -->
+    <div class="test-container">
+        
+        <!-- 标题 -->
+        <div class="test-section">
+            <h1 style="color: #667eea; text-align: center; font-size: 36px;">
+                💱 多货币价格显示系统测试页面
+            </h1>
+            <p style="text-align: center; color: #666; font-size: 16px; margin-top: 10px;">
+                <span class="status-indicator online"></span>
+                系统在线 | 实时汇率 | 6种货币支持
+            </p>
+        </div>
+
+        <!-- 使用说明 -->
+        <div class="test-section">
+            <h2><i class="fas fa-info-circle"></i> 使用说明</h2>
+            <div class="info-box">
+                <h4>📌 如何测试</h4>
+                <p>1. 点击右上角导航栏的<strong>货币切换器</strong>（显示当前货币，如 🇨🇳 CNY）</p>
+                <p>2. 在下拉菜单中<strong>选择不同的货币</strong>（美元、欧元、加元、澳元、迪拉姆）</p>
+                <p>3. 观察下方的<strong>价格演示区域</strong>，所有价格会自动转换</p>
+                <p>4. 系统会<strong>记住您的选择</strong>，刷新页面后仍保持</p>
+            </div>
+            
+            <div class="info-box">
+                <h4>🌍 支持的货币</h4>
+                <p>• <strong>人民币 (CNY)</strong> - 基准货币</p>
+                <p>• <strong>美元 (USD)</strong> - 美国及国际贸易</p>
+                <p>• <strong>欧元 (EUR)</strong> - 欧盟地区</p>
+                <p>• <strong>加元 (CAD)</strong> - 加拿大</p>
+                <p>• <strong>澳元 (AUD)</strong> - 澳大利亚</p>
+                <p>• <strong>阿联酋迪拉姆 (AED)</strong> - 阿联酋</p>
+            </div>
+        </div>
+
+        <!-- 价格演示 -->
+        <div class="test-section">
+            <h2><i class="fas fa-dollar-sign"></i> 价格转换演示</h2>
+            <p style="color: #666; margin-bottom: 20px;">
+                切换货币后，以下价格会自动更新：
+            </p>
+            
+            <div class="price-demo">
+                <div class="price-card">
+                    <h3>Velcro魔术贴徽章</h3>
+                    <div class="price-value">¥1.08-2.95</div>
+                    <div class="price-unit">/片</div>
+                    <p style="margin-top: 10px; font-size: 12px; opacity: 0.8;">起订量: 500片</p>
+                </div>
+                
+                <div class="price-card">
+                    <h3>雪尼尔刺绣章</h3>
+                    <div class="price-value">¥12.96-25.20</div>
+                    <div class="price-unit">/片</div>
+                    <p style="margin-top: 10px; font-size: 12px; opacity: 0.8;">起订量: 50片</p>
+                </div>
+                
+                <div class="price-card">
+                    <h3>磁性收纳器</h3>
+                    <div class="price-value">¥2.09-4.10</div>
+                    <div class="price-unit">/个</div>
+                    <p style="margin-top: 10px; font-size: 12px; opacity: 0.8;">起订量: 100个</p>
+                </div>
+                
+                <div class="price-card">
+                    <h3>豪华眼镜链</h3>
+                    <div class="price-value">¥14.26</div>
+                    <div class="price-unit">/条</div>
+                    <p style="margin-top: 10px; font-size: 12px; opacity: 0.8;">起订量: 100条</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 货币信息 -->
+        <div class="test-section">
+            <h2><i class="fas fa-globe"></i> 支持的货币</h2>
+            <div class="currency-list-demo">
+                <div class="currency-item">
+                    <div class="flag">🇨🇳</div>
+                    <div class="code">CNY</div>
+                    <div class="name">人民币</div>
+                </div>
+                <div class="currency-item">
+                    <div class="flag">🇺🇸</div>
+                    <div class="code">USD</div>
+                    <div class="name">美元</div>
+                </div>
+                <div class="currency-item">
+                    <div class="flag">🇪🇺</div>
+                    <div class="code">EUR</div>
+                    <div class="name">欧元</div>
+                </div>
+                <div class="currency-item">
+                    <div class="flag">🇨🇦</div>
+                    <div class="code">CAD</div>
+                    <div class="name">加元</div>
+                </div>
+                <div class="currency-item">
+                    <div class="flag">🇦🇺</div>
+                    <div class="code">AUD</div>
+                    <div class="name">澳元</div>
+                </div>
+                <div class="currency-item">
+                    <div class="flag">🇦🇪</div>
+                    <div class="code">AED</div>
+                    <div class="name">迪拉姆</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 功能测试 -->
+        <div class="test-section">
+            <h2><i class="fas fa-flask"></i> 功能测试</h2>
+            <p style="color: #666; margin-bottom: 20px;">
+                点击按钮快速切换货币：
+            </p>
+            <div style="text-align: center;">
+                <button class="btn-test" onclick="testCurrency('CNY')">🇨🇳 人民币</button>
+                <button class="btn-test" onclick="testCurrency('USD')">🇺🇸 美元</button>
+                <button class="btn-test" onclick="testCurrency('EUR')">🇪🇺 欧元</button>
+                <button class="btn-test" onclick="testCurrency('CAD')">🇨🇦 加元</button>
+                <button class="btn-test" onclick="testCurrency('AUD')">🇦🇺 澳元</button>
+                <button class="btn-test" onclick="testCurrency('AED')">🇦🇪 迪拉姆</button>
+            </div>
+        </div>
+
+        <!-- 汇率信息 -->
+        <div class="test-section">
+            <h2><i class="fas fa-exchange-alt"></i> 当前汇率信息</h2>
+            <div id="rateInfo" style="margin-top: 20px;">
+                <p style="color: #666; text-align: center;">
+                    汇率数据加载中...
+                </p>
+            </div>
+        </div>
+
+        <!-- 快速链接 -->
+        <div class="test-section">
+            <h2><i class="fas fa-link"></i> 快速链接</h2>
+            <div style="text-align: center;">
+                <a href="index.html" class="btn-test">
+                    <i class="fas fa-home"></i> 返回首页
+                </a>
+                <a href="products-garment-tags-updated.html" class="btn-test">
+                    <i class="fas fa-tags"></i> 服装标签产品
+                </a>
+                <a href="products-promotional-updated.html" class="btn-test">
+                    <i class="fas fa-gift"></i> 促销产品
+                </a>
+                <a href="多货币系统使用说明.md" class="btn-test" target="_blank">
+                    <i class="fas fa-book"></i> 使用说明
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/currency-converter.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // 快速切换货币测试函数
+        function testCurrency(currency) {
+            if (window.currencyConverter) {
+                window.currencyConverter.changeCurrency(currency);
+            }
+        }
+        
+        // 显示汇率信息
+        function displayRateInfo() {
+            if (!window.currencyConverter) {
+                setTimeout(displayRateInfo, 500);
+                return;
+            }
+            
+            const converter = window.currencyConverter;
+            const rates = converter.exchangeRates;
+            const lastUpdate = converter.lastUpdate;
+            
+            let html = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">';
+            
+            Object.entries(rates).forEach(([currency, rate]) => {
+                const info = converter.currencies[currency];
+                html += `
+                    <div style="background: #f8f9ff; padding: 15px; border-radius: 8px; border: 2px solid #e0e0e0;">
+                        <div style="font-size: 24px; text-align: center;">${info.flag}</div>
+                        <div style="font-weight: 600; text-align: center; margin: 10px 0; color: #333;">
+                            ${currency}
+                        </div>
+                        <div style="font-size: 14px; text-align: center; color: #666;">
+                            ${currency === 'CNY' ? '基准货币' : `1 CNY = ${rate.toFixed(4)}`}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            
+            if (lastUpdate) {
+                html += `<p style="text-align: center; color: #999; margin-top: 20px; font-size: 14px;">
+                    <i class="fas fa-clock"></i> 汇率更新时间: ${lastUpdate.toLocaleString('zh-CN')}
+                </p>`;
+            }
+            
+            document.getElementById('rateInfo').innerHTML = html;
+        }
+        
+        // 页面加载完成后显示汇率信息
+        window.addEventListener('load', function() {
+            setTimeout(displayRateInfo, 1000);
+        });
+    </script>
+</body>
+</html>
+

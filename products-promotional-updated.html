@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="U-MEKING 促销产品 - 眼镜链、磁性收纳器、手环、钥匙扣等创意定制礼品">
+    <title>促销产品 - U-MEKING</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/currency-switcher.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 图片上传提示样式 */
+        .upload-hint {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 152, 0, 0.95);
+            color: white;
+            padding: 8px;
+            font-size: 11px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 5;
+        }
+        
+        .product-image:hover .upload-hint {
+            opacity: 1;
+        }
+        
+        .product-image img[src*="products/"] {
+            border: 2px dashed #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html"><h2>U-<span>MEKING</span></h2></a>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html#products">产品</a>
+                    <a href="index.html#cases">案例</a>
+                    <a href="index.html#process">流程</a>
+                    <a href="index.html#about">关于</a>
+                    <a href="index.html#contact">联系</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> 首页</a>
+                <span>/</span>
+                <span>促销产品</span>
+            </div>
+            <h1>U-Meking 促销礼品</h1>
+            <p>创意定制礼品，提升品牌影响力的最佳选择</p>
+        </div>
+    </section>
+
+    <!-- Product Filter & Sort -->
+    <section class="product-controls">
+        <div class="container">
+            <div class="controls-wrapper">
+                <div class="filter-section">
+                    <button class="filter-btn active" data-category="all">全部产品</button>
+                    <button class="filter-btn" data-category="accessories">配饰系列</button>
+                    <button class="filter-btn" data-category="office">办公用品</button>
+                    <button class="filter-btn" data-category="wristband">手环系列</button>
+                    <button class="filter-btn" data-category="other">其他</button>
+                </div>
+                <div class="sort-section">
+                    <select id="sortSelect">
+                        <option value="default">默认排序</option>
+                        <option value="price-low">价格从低到高</option>
+                        <option value="price-high">价格从高到低</option>
+                        <option value="moq-low">起订量从低到高</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                
+                <!-- 产品 1: 磁性收纳器 -->
+                <div class="product-card" data-category="office" data-price="2.09" data-moq="100">
+                    <div class="product-badge">🔥 已售50件</div>
+                    <div class="product-image">
+                        <img src="images/products/magnetic-organizer.jpg" alt="磁性收纳器" onerror="this.src='images/case-keychains.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/magnetic-organizer.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">办公用品</span>
+                        <h3 class="product-title">多功能磁性收纳器</h3>
+                        <p class="product-desc">名片盒+日历+便签架，不锈钢冰箱磁贴，办公室桌面收纳神器</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-magnet"></i> 强力磁铁</span>
+                            <span><i class="fas fa-briefcase"></i> 办公必备</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥2.09-4.10</span>
+                                <span class="price-unit">/个</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 100个</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 2: 豪华双面眼镜链（低价款） -->
+                <div class="product-card" data-category="accessories" data-price="4.90" data-moq="100">
+                    <div class="product-badge">推荐</div>
+                    <div class="product-image">
+                        <img src="images/products/glasses-chain-basic.jpg" alt="眼镜链基础款" onerror="this.src='images/case-wristbands.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/glasses-chain-basic.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">配饰系列</span>
+                        <h3 class="product-title">双面水晶眼镜链（基础款）</h3>
+                        <p class="product-desc">双面设计，可当眼镜链或口罩挂绳，水晶珠串女士首饰礼品</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-gem"></i> 水晶珠串</span>
+                            <span><i class="fas fa-female"></i> 女士配饰</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥4.90</span>
+                                <span class="price-unit">/条</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 100条</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 3: 豪华双面眼镜链（高端款） -->
+                <div class="product-card" data-category="accessories" data-price="14.26" data-moq="100">
+                    <div class="product-badge">高端</div>
+                    <div class="product-image">
+                        <img src="images/products/glasses-chain-luxury.jpg" alt="眼镜链豪华款" onerror="this.src='images/case-wristbands.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/glasses-chain-luxury.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">配饰系列</span>
+                        <h3 class="product-title">豪华双面水晶眼镜链（高端款）</h3>
+                        <p class="product-desc">精选水晶珠，奢华设计，适合高端礼品、商务赠礼</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-gem"></i> 精选水晶</span>
+                            <span><i class="fas fa-star"></i> 奢华设计</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">¥14.26</span>
+                                <span class="price-unit">/条</span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 100条</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 4: NFC智能标签 -->
+                <div class="product-card" data-category="other" data-price="varies" data-moq="100">
+                    <div class="product-badge new">科技款</div>
+                    <div class="product-image">
+                        <img src="images/products/nfc-tags.jpg" alt="NFC智能标签" onerror="this.src='images/case-tags.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/nfc-tags.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">智能科技</span>
+                        <h3 class="product-title">NFC智能标签</h3>
+                        <p class="product-desc">无接触智能识别，适用于产品防伪、智能名片、门禁卡等</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-wifi"></i> NFC技术</span>
+                            <span><i class="fas fa-shield-alt"></i> 防伪溯源</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">询价</span>
+                                <span class="price-unit"></span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 100个</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 5: 压纹系列产品 -->
+                <div class="product-card" data-category="other" data-price="varies" data-moq="200">
+                    <div class="product-image">
+                        <img src="images/products/embossed-products.jpg" alt="压纹产品" onerror="this.src='images/case-patches.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/embossed-products.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">特殊工艺</span>
+                        <h3 class="product-title">压纹定制产品</h3>
+                        <p class="product-desc">压纹立体工艺，适用于皮具、纸品、塑料制品等</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-layer-group"></i> 立体效果</span>
+                            <span><i class="fas fa-paint-brush"></i> 定制工艺</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">询价</span>
+                                <span class="price-unit"></span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 200个</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 6: 印刷系列产品 -->
+                <div class="product-card" data-category="other" data-price="varies" data-moq="500">
+                    <div class="product-image">
+                        <img src="images/products/print-products.jpg" alt="印刷产品" onerror="this.src='images/case-label.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/print-products.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">印刷系列</span>
+                        <h3 class="product-title">丝网印刷/数码印刷</h3>
+                        <p class="product-desc">多种印刷工艺可选，适用于T恤、帆布包、宣传品等</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-print"></i> 多种工艺</span>
+                            <span><i class="fas fa-palette"></i> 全彩印刷</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">询价</span>
+                                <span class="price-unit"></span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 500个</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 7: 注塑系列产品 -->
+                <div class="product-card" data-category="other" data-price="varies" data-moq="300">
+                    <div class="product-image">
+                        <img src="images/products/injection-products.jpg" alt="注塑产品" onerror="this.src='images/case-keychains.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/injection-products.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">注塑系列</span>
+                        <h3 class="product-title">注塑成型产品</h3>
+                        <p class="product-desc">PVC、硅胶注塑工艺，适合钥匙扣、手环、装饰品等</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-cog"></i> 注塑工艺</span>
+                            <span><i class="fas fa-shapes"></i> 立体造型</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">询价</span>
+                                <span class="price-unit"></span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 300个</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 8: 金属系列产品 -->
+                <div class="product-card" data-category="other" data-price="varies" data-moq="100">
+                    <div class="product-badge">高端</div>
+                    <div class="product-image">
+                        <img src="images/products/metal-products.jpg" alt="金属产品" onerror="this.src='images/case-keychains.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/metal-products.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">金属系列</span>
+                        <h3 class="product-title">金属制品定制</h3>
+                        <p class="product-desc">金属徽章、钥匙扣、书签、名片夹等，电镀、烤漆工艺</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-medal"></i> 金属材质</span>
+                            <span><i class="fas fa-gem"></i> 高档质感</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">询价</span>
+                                <span class="price-unit"></span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 100个</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+                <!-- 产品 9: 服装配件系列 -->
+                <div class="product-card" data-category="accessories" data-price="varies" data-moq="500">
+                    <div class="product-image">
+                        <img src="images/products/apparel-accessories.jpg" alt="服装配件" onerror="this.src='images/case-wristbands.jpg'">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">快速查看</button>
+                        </div>
+                        <div class="upload-hint">📷 上传至: images/products/apparel-accessories.jpg</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">配饰系列</span>
+                        <h3 class="product-title">服装配件定制</h3>
+                        <p class="product-desc">拉链头、纽扣、吊牌、包装袋等服装辅料一站式定制</p>
+                        <div class="product-specs">
+                            <span><i class="fas fa-tshirt"></i> 服装辅料</span>
+                            <span><i class="fas fa-tags"></i> 品牌定制</span>
+                        </div>
+                        <div class="product-bottom">
+                            <div class="product-price">
+                                <span class="price-label">单价</span>
+                                <span class="price-value">询价</span>
+                                <span class="price-unit"></span>
+                            </div>
+                            <div class="product-moq">
+                                <span>起订量: 500个</span>
+                            </div>
+                        </div>
+                        <button class="btn-inquiry"><i class="fas fa-envelope"></i> 立即询价</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>需要批量定制促销礼品？</h2>
+                <p>联系我们获取专属报价方案，享受批量优惠和快速打样服务</p>
+                <a href="index.html#contact" class="btn btn-primary btn-lg">免费咨询报价</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>U-<span>MEKING</span></h3>
+                    <p>专业定制服装标签和促销产品，为您的品牌增添独特魅力</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html#products">产品中心</a></li>
+                        <li><a href="index.html#cases">案例展示</a></li>
+                        <li><a href="index.html#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@u-meking.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 U-MEKING. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/currency-converter.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
+
